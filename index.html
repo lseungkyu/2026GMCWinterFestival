@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REBOOT: 다시 제자로 - 2026 겨울수련회</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;700&family=Orbitron:wght@900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #05070a; 
+            background-image: 
+                radial-gradient(circle at 50% 0%, #1a1025 0%, transparent 50%),
+                radial-gradient(circle at 100% 50%, #0d1221 0%, transparent 40%);
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+        .header-font { font-family: 'Black Han Sans', sans-serif; }
+        
+        .reboot-font { 
+            font-family: 'Orbitron', sans-serif; 
+            letter-spacing: -0.02em;
+            background: linear-gradient(180deg, #ffffff 5%, #ff2d95 45%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(255, 45, 149, 0.5));
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+        }
+        
+        .coin-gradient {
+            background: linear-gradient(135deg, #ff2d95 0%, #6d28d9 100%);
+            box-shadow: 0 15px 35px rgba(255, 45, 149, 0.25);
+        }
+
+        .date-badge {
+            background: rgba(255, 45, 149, 0.15);
+            border: 1px solid rgba(255, 45, 149, 0.4);
+            color: #ff2d95;
+            box-shadow: 0 0 15px rgba(255, 45, 149, 0.2);
+        }
+
+        .step-line::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #ff2d95 0%, #8b5cf6 50%, transparent 100%);
+            opacity: 0.3;
+        }
+
+        .neon-text-pink { color: #ff2d95; text-shadow: 0 0 8px rgba(255, 45, 149, 0.5); }
+    </style>
+</head>
+<body class="max-w-md mx-auto min-h-screen shadow-2xl relative overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="relative pt-20 pb-12 text-center overflow-hidden px-4">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-64 bg-pink-600/10 blur-[100px] pointer-events-none"></div>
+        
+        <p class="text-pink-400 font-bold tracking-[0.3em] text-xs mb-4 opacity-90 uppercase">2026 지구촌교회 청소년지구 겨울수련회</p>
+        <h1 class="reboot-font text-7xl mb-4 font-black italic">REBOOT</h1>
+        <p class="header-font text-3xl text-white mb-8 tracking-tight">다시 제자로</p>
+        
+        <!-- Date Highlighted -->
+        <div class="inline-flex flex-col items-center">
+            <div class="date-badge px-8 py-3 rounded-2xl font-bold text-xl mb-2">
+                01. 23 <span class="mx-2 text-white/30 text-sm">~</span> 01. 25
+            </div>
+            <p class="text-[11px] text-gray-400 tracking-widest uppercase">3 Days of Spiritual Reloading</p>
+        </div>
+    </header>
+
+    <main class="p-6 relative z-10">
+        <!-- R-Coin System Core Concept -->
+        <section class="mb-14">
+            <div class="coin-gradient p-8 rounded-[2.5rem] text-white relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-xl border border-white/30 shadow-inner">
+                            <i class="fas fa-microchip text-3xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="header-font text-2xl leading-tight">R-Coin 연동 시스템</h2>
+                            <p class="text-pink-100 text-xs font-bold">승리를 위한 핵심 리소스</p>
+                        </div>
+                    </div>
+                    <div class="bg-black/20 p-4 rounded-2xl border border-white/10">
+                        <p class="text-[12px] leading-relaxed opacity-95">
+                            수련회 모든 활동에서 <span class="font-bold text-yellow-300">R-Coin</span>을 획득하세요!<br>
+                            모은 코인으로 2일차 성경 퀴즈에서 사용할 <br>
+                            <span class="font-bold text-pink-300 underline underline-offset-4">강력한 전략 아이템 카드</span>를 구매할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Timeline -->
+        <h3 class="header-font text-xl mb-10 flex items-center gap-3">
+            <span class="w-2 h-7 bg-pink-500 rounded-full shadow-[0_0_10px_rgba(255,45,149,0.5)]"></span>
+            REBOOT PROCESS
+        </h3>
+
+        <div class="relative step-line pl-12 space-y-12">
+            <!-- Phase 1: 에버랜드 -->
+            <div class="relative z-10">
+                <div class="absolute -left-12 bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center border-4 border-[#05070a] shadow-[0_0_15px_rgba(255,45,149,0.4)]">
+                    <i class="fas fa-map-location-dot text-sm"></i>
+                </div>
+                <div class="glass-card p-6">
+                    <div class="flex justify-between items-start mb-5">
+                        <h4 class="header-font text-2xl text-pink-400 tracking-wide">PHASE 01.<br>에버랜드</h4>
+                        <span class="text-[10px] font-bold bg-pink-500/20 text-pink-300 px-3 py-1 rounded-full border border-pink-500/30 uppercase">Day 1</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                            <p class="text-sm font-bold text-white mb-1">📸 포토제닉</p>
+                            <p class="text-[11px] text-gray-400">조원 전체가 참여하는 베스트 샷 도전!</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                            <p class="text-sm font-bold text-white mb-1">🏃 ㅇㅇㅇ(인물)을 찾아라</p>
+                            <p class="text-[11px] text-gray-400">에버랜드 전역에 숨겨진 인물을 추격하세요.</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                            <p class="text-sm font-bold text-white mb-1">🔍 ㅇㅇㅇ(모양)을 찾아라</p>
+                            <p class="text-[11px] text-gray-400">제시된 특별한 형태의 표식을 찾아 인증하세요.</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-center text-[11px] font-bold text-yellow-400/80">
+                        <i class="fas fa-plus-circle mr-1"></i> 각 미션 성공 시 R-Coin 즉시 지급
+                    </p>
+                </div>
+            </div>
+
+            <!-- Phase 2: 오전 프로그램 -->
+            <div class="relative z-10">
+                <div class="absolute -left-12 bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center border-4 border-[#05070a] shadow-[0_0_15px_rgba(139,92,246,0.4)]">
+                    <i class="fas fa-dice text-sm"></i>
+                </div>
+                <div class="glass-card p-6">
+                    <div class="flex justify-between items-start mb-5">
+                        <h4 class="header-font text-2xl text-purple-400 tracking-wide">PHASE 02.<br>자유 활동</h4>
+                        <span class="text-[10px] font-bold bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full border border-purple-500/30 uppercase">Day 2 AM</span>
+                    </div>
+                    <div class="grid grid-cols-1 gap-3 mb-4">
+                        <div class="flex items-center gap-4 bg-purple-900/10 p-4 rounded-2xl border border-purple-500/10">
+                            <div class="text-purple-400"><i class="fas fa-couch text-xl"></i></div>
+                            <div>
+                                <p class="text-sm font-bold text-white">실내 프로그램 3종</p>
+                                <p class="text-[10px] text-gray-500">보드게임, 키링 만들기 등</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 bg-pink-900/10 p-4 rounded-2xl border border-pink-500/10">
+                            <div class="text-pink-400"><i class="fas fa-running text-xl"></i></div>
+                            <div>
+                                <p class="text-sm font-bold text-white">실외 프로그램 3종</p>
+                                <p class="text-[10px] text-gray-500">스포츠 미션, 보물찾기 등</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-[10px] text-purple-300 font-bold">성공한 만큼 코인이 쌓입니다!</p>
+                </div>
+            </div>
+
+            <!-- Phase 3: 성경 퀴즈 연계 -->
+            <div class="relative z-10">
+                <div class="absolute -left-12 bg-white text-gray-900 w-10 h-10 rounded-full flex items-center justify-center border-4 border-[#05070a] shadow-lg">
+                    <i class="fas fa-trophy text-sm"></i>
+                </div>
+                <div class="glass-card p-6 border-pink-500/30 bg-gradient-to-br from-pink-600/10 to-transparent">
+                    <div class="flex justify-between items-start mb-5">
+                        <h4 class="header-font text-2xl text-white tracking-wide uppercase">Final Stage</h4>
+                        <span class="text-[10px] font-bold bg-white/10 text-white px-3 py-1 rounded-full border border-white/20 uppercase">Day 2 PM</span>
+                    </div>
+                    
+                    <div class="text-center py-6 px-4 bg-black/40 rounded-3xl border border-white/5 mb-4">
+                        <i class="fas fa-lock text-3xl text-pink-500/50 mb-3"></i>
+                        <p class="header-font text-xl text-white mb-2 underline decoration-pink-500 underline-offset-8">성경 퀴즈대회</p>
+                        <p class="text-[11px] text-gray-400 leading-relaxed">
+                            범위는 현장에서 공개됩니다!<br>
+                            지금까지 모은 <span class="text-yellow-400 font-bold">R-Coin</span>의 진가가 발휘되는 순간!
+                        </p>
+                    </div>
+
+                    <!-- Item Shop Connection -->
+                    <div class="bg-pink-500/20 p-4 rounded-2xl border border-pink-500/40 text-center">
+                        <p class="text-[12px] font-bold text-pink-100">
+                            <i class="fas fa-shopping-cart mr-2"></i>코인으로 아이템 카드를 구매하세요!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategy Shop Preview -->
+        <section class="mt-24 mb-16 px-2">
+            <h3 class="reboot-font text-[14px] text-center mb-8 text-white/50 tracking-[0.4em] uppercase">Inventory Preview</h3>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-6 glass-card border-pink-500/30">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 rounded-2xl bg-pink-500/20 flex items-center justify-center border border-pink-500/30 shadow-lg shadow-pink-500/20">
+                            <i class="fas fa-crown text-pink-400 text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-base font-bold text-white">EPIC 아이템</p>
+                            <p class="text-[11px] text-gray-500 mt-1 font-medium">상대 점수 대량 강탈 및 추월</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-lg font-black text-pink-400">25 <span class="text-[10px]">RC</span></span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between p-6 glass-card border-purple-500/30 opacity-80 scale-[0.98]">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30">
+                            <i class="fas fa-star text-purple-400 text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-base font-bold text-white">RARE 아이템</p>
+                            <p class="text-[11px] text-gray-500 mt-1 font-medium">점수 가산 및 방어권</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-lg font-black text-purple-400">15 <span class="text-[10px]">RC</span></span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-[11px] text-gray-600 mt-6 italic">코인이 많을수록 더 강력한 덱을 구성할 수 있습니다.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-20 pb-20 text-center relative px-8">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-pink-600 to-transparent"></div>
+            <p class="reboot-font text-[12px] text-pink-500/50 pt-12 mb-3 tracking-[0.2em]">REBOOT: 다시 제자로</p>
+            <p class="text-[10px] text-gray-700 font-bold uppercase tracking-widest">지구촌교회 청소년지구</p>
+        </footer>
+    </main>
+
+    <!-- Background Decor -->
+    <div class="fixed top-0 right-0 w-96 h-96 bg-pink-600/5 rounded-full blur-[130px] pointer-events-none"></div>
+    <div class="fixed bottom-0 left-0 w-96 h-96 bg-purple-600/5 rounded-full blur-[130px] pointer-events-none"></div>
+
+</body>
+</html>
