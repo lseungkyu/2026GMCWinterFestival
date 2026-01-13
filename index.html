@@ -60,10 +60,20 @@
         }
 
         .neon-text-pink { color: #ff2d95; text-shadow: 0 0 8px rgba(255, 45, 149, 0.5); }
+
+        /* 페이지 전환 애니메이션 */
+        .page-container { transition: opacity 0.3s ease; }
+        .hidden { display: none; }
+        .active { display: block; opacity: 1; }
+
+        /* 식당 카드 전용 스타일 */
+        .restaurant-card { transition: all 0.3s ease; }
+        .hidden-restaurant { display: none; }
     </style>
 </head>
 <body class="max-w-md mx-auto min-h-screen shadow-2xl relative overflow-x-hidden">
 
+    <div id="mainPage" class="page-container active">
     <!-- Header -->
     <header class="relative pt-20 pb-12 text-center overflow-hidden px-4">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-64 bg-pink-600/10 blur-[100px] pointer-events-none"></div>
@@ -136,10 +146,11 @@
                             <p class="text-sm font-bold text-white mb-1">🔍 ㅇㅇㅇ(모양)을 찾아라</p>
                             <p class="text-[11px] text-gray-400">제시된 특별한 형태의 표식을 찾아 인증하세요.</p>
                         </div>
+                    <button onclick="togglePage('restaurantPage')" class="w-full bg-pink-600 hover:bg-pink-500 text-white py-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-pink-600/30">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M2 12h20"/></svg>
+                        식권 사용 가능 식당 조회
+                    </button>
                     </div>
-                    <p class="mt-4 text-center text-[11px] font-bold text-yellow-400/80">
-                        <i class="fas fa-plus-circle mr-1"></i> 각 미션 성공 시 R-Coin 즉시 지급
-                    </p>
                 </div>
             </div>
 
@@ -264,6 +275,188 @@
     <!-- Background Decor -->
     <div class="fixed top-0 right-0 w-96 h-96 bg-pink-600/5 rounded-full blur-[130px] pointer-events-none"></div>
     <div class="fixed bottom-0 left-0 w-96 h-96 bg-purple-600/5 rounded-full blur-[130px] pointer-events-none"></div>
+
+    </div>
+
+    <!-- [RESTAURANT PAGE] -->
+    <div id="restaurantPage" class="page-container hidden px-6 pt-12 pb-20">
+        <!-- Sticky Header -->
+        <div class="flex items-center justify-between mb-8">
+            <button onclick="togglePage('mainPage')" class="flex items-center gap-2 text-pink-400 font-bold text-sm">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                BACK
+            </button>
+            <h2 class="header-font text-2xl text-white tracking-tight">베이직 식권 가이드</h2>
+        </div>
+
+        <!-- Filter Toggle -->
+        <div class="glass-card p-6 mb-10 border-pink-500/20 bg-pink-500/5">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="font-bold text-white text-base">영업 중인 식당만 보기</h3>
+                    <p class="text-[10px] text-gray-400 mt-1 uppercase tracking-wider font-bold">Show Open Only</p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="statusFilter" class="sr-only peer">
+                    <div class="w-12 h-6 bg-white/10 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white/40 after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-pink-600 peer-checked:after:bg-white"></div>
+                </label>
+            </div>
+        </div>
+
+        <!-- Restaurant List -->
+        <div id="restaurantList" class="space-y-6">
+            <!-- Card 1 -->
+            <div class="restaurant-card glass-card overflow-hidden" data-open="true">
+                <div class="p-5 flex justify-between items-center bg-white/5 border-b border-white/5">
+                    <h4 class="font-bold text-lg text-white">🍜 차이나문</h4>
+                    <span class="px-2 py-0.5 rounded font-bold text-[9px] bg-green-500/20 text-green-400 border border-green-500/30">OPEN</span>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-gray-300">자장면과 튀김만두</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="restaurant-card glass-card overflow-hidden" data-open="true">
+                <div class="p-5 flex justify-between items-center bg-white/5 border-b border-white/5">
+                    <h4 class="font-bold text-lg text-white">🍢 알프스쿠체</h4>
+                    <span class="px-2 py-0.5 rounded font-bold text-[9px] bg-green-500/20 text-green-400 border border-green-500/30">OPEN</span>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-gray-300">꼬치어묵우동 or 눈치꼬치+콜라</p>
+                </div>
+            </div>
+
+            <!-- Card 3 (Closed) -->
+            <div class="restaurant-card glass-card overflow-hidden opacity-40 grayscale-[0.5]" data-open="false">
+                <div class="p-5 flex justify-between items-center bg-white/5 border-b border-white/5">
+                    <h4 class="font-bold text-lg text-white/70 font-strike">🏡 홀랜드 빌리지</h4>
+                    <span class="px-2 py-0.5 rounded font-bold text-[9px] bg-gray-500/20 text-gray-400 border border-gray-500/30 uppercase tracking-widest">Closed</span>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-gray-500 font-strike">꼬치어묵우동 or 왕김말이떡볶이</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="restaurant-card glass-card overflow-hidden" data-open="true">
+                <div class="p-5 flex justify-between items-center bg-white/5 border-b border-white/5">
+                    <h4 class="font-bold text-lg text-white">🍛 오리엔탈</h4>
+                    <span class="px-2 py-0.5 rounded font-bold text-[9px] bg-green-500/20 text-green-400 border border-green-500/30">OPEN</span>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-gray-300">튀김우동 or 두끼떡볶이&주먹밥</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="restaurant-card glass-card overflow-hidden" data-open="true">
+                <div class="p-5 flex justify-between items-center bg-white/5 border-b border-white/5">
+                    <h4 class="font-bold text-lg text-white">🍔 버거카페 아메리카</h4>
+                    <span class="px-2 py-0.5 rounded font-bold text-[9px] bg-green-500/20 text-green-400 border border-green-500/30">OPEN</span>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-gray-300">통살사워치킨버거와 캔스프라이트</p>
+                </div>
+            </div>
+
+            <!-- Card 6 (Closed) -->
+            <div class="restaurant-card glass-card overflow-hidden opacity-40 grayscale-[0.5]" data-open="false">
+                <div class="p-5 flex justify-between items-center bg-white/5 border-b border-white/5">
+                    <h4 class="font-bold text-lg text-white/70">🛍️ 타운즈마켓</h4>
+                    <span class="px-2 py-0.5 rounded font-bold text-[9px] bg-gray-500/20 text-gray-400 border border-gray-500/30 uppercase tracking-widest">Closed</span>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-gray-500">순등심돈가스 or 사누끼어묵우동</p>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="restaurant-card glass-card overflow-hidden" data-open="true">
+                <div class="p-5 flex justify-between items-center bg-white/5 border-b border-white/5">
+                    <h4 class="font-bold text-lg text-white">🍗 KFC</h4>
+                    <span class="px-2 py-0.5 rounded font-bold text-[9px] bg-green-500/20 text-green-400 border border-green-500/30">OPEN</span>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-gray-300">데리야끼불고기버거&콜라</p>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="restaurant-card glass-card overflow-hidden" data-open="true">
+                <div class="p-5 flex justify-between items-center bg-white/5 border-b border-white/5">
+                    <h4 class="font-bold text-lg text-white">⏰ 매직타임</h4>
+                    <span class="px-2 py-0.5 rounded font-bold text-[9px] bg-green-500/20 text-green-400 border border-green-500/30">OPEN</span>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-gray-300">돈가스카레라이스 or 자장면</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="noResults" class="hidden text-center py-20">
+            <p class="text-pink-500 header-font text-xl">NO OPEN RESTAURANTS</p>
+            <p class="text-gray-500 text-xs mt-2">운영 중인 식당이 없습니다.</p>
+        </div>
+
+        <p class="mt-12 text-center text-gray-600 text-[10px] leading-loose">
+            ※ 본 페이지는 베이직 식권 전용 안내입니다.<br>
+            에버에듀 실시간 식당 조회 데이터 기반
+        </p>
+    </div>
+
+    <script>
+        // 페이지 전환
+        function togglePage(targetId) {
+            const main = document.getElementById('mainPage');
+            const restaurant = document.getElementById('restaurantPage');
+
+            if (targetId === 'restaurantPage') {
+                main.classList.remove('active');
+                main.classList.add('hidden');
+                restaurant.classList.remove('hidden');
+                restaurant.classList.add('active');
+            } else {
+                restaurant.classList.remove('active');
+                restaurant.classList.add('hidden');
+                main.classList.remove('hidden');
+                main.classList.add('active');
+            }
+            window.scrollTo(0, 0);
+        }
+
+        // 필터링 로직
+        const statusFilter = document.getElementById('statusFilter');
+        const cards = document.querySelectorAll('.restaurant-card');
+        const noResults = document.getElementById('noResults');
+
+        statusFilter.addEventListener('change', function() {
+            let visibleCount = 0;
+            const isChecked = this.checked;
+
+            cards.forEach(card => {
+                const isOpen = card.getAttribute('data-open') === 'true';
+
+                if (isChecked) {
+                    if (isOpen) {
+                        card.classList.remove('hidden-restaurant');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden-restaurant');
+                    }
+                } else {
+                    card.classList.remove('hidden-restaurant');
+                    visibleCount++;
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        });
+    </script>
 
 </body>
 </html>
