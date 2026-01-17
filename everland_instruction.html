@@ -7,143 +7,223 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; }
-        .gradient-header { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
-        .card { transition: transform 0.2s; }
-        .card:active { transform: scale(0.98); }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+        
+        :root {
+            --base-font-size: 16px;
+        }
+
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            background-color: #f1f5f9; 
+            font-size: var(--base-font-size);
+            line-height: 1.6;
+            word-break: keep-all;
+        }
+
+        .font-adjust-panel {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .gradient-header { 
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); 
+        }
+
+        .content-text {
+            font-size: 1.1rem; /* 기본보다 조금 더 크게 시작 */
+        }
+
+        .large-text { font-size: 1.25rem; }
+        .xl-text { font-size: 1.5rem; }
+        
+        /* 애니메이션 */
+        .card { transition: all 0.2s ease; }
+        
+        /* 조절 버튼 스타일 */
+        .size-btn {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            font-weight: bold;
+        }
+        .size-btn:active { background: #e2e8f0; }
     </style>
 </head>
-<body class="pb-10">
+<body class="pb-20">
+
+    <!-- 글자 크기 조절 바 (고정) -->
+    <div class="font-adjust-panel px-4 py-3 flex items-center justify-between shadow-sm">
+        <span class="text-sm font-bold text-gray-500"><i class="fas fa-font mr-1"></i> 글자 크기</span>
+        <div class="flex space-x-2">
+            <button onclick="changeFontSize(-2)" class="size-btn text-sm">가-</button>
+            <button onclick="resetFontSize()" class="size-btn text-base">기본</button>
+            <button onclick="changeFontSize(2)" class="size-btn text-xl">가+</button>
+        </div>
+    </div>
 
     <!-- Header -->
-    <header class="gradient-header text-white pt-12 pb-8 px-6 rounded-b-[3rem] shadow-lg mb-8 text-center">
-        <div class="inline-block p-3 bg-white/20 rounded-full mb-4">
-            <i class="fas fa-church text-2xl"></i>
+    <header class="gradient-header text-white pt-10 pb-12 px-6 rounded-b-[3rem] shadow-xl text-center">
+        <div class="inline-block p-4 bg-white/20 rounded-full mb-4 shadow-inner">
+            <i class="fas fa-church text-3xl"></i>
         </div>
-        <h1 class="text-xl font-bold mb-2">2026 지구촌교회 청소년지구 수지10시중등마을 겨울수련회</h1>
-        <p class="text-sm opacity-90 font-light">에버랜드 목자 가이드 & 안전 지침</p>
+        <h1 class="text-2xl font-black mb-3 leading-tight tracking-tight px-2">
+            2026 지구촌교회 <br>겨울수련회 목자 가이드
+        </h1>
+        <p class="text-lg opacity-90 font-medium bg-black/10 inline-block px-4 py-1 rounded-full">
+            에버랜드 안전 지침
+        </p>
     </header>
 
-    <main class="px-5 space-y-6">
+    <main id="main-content" class="px-5 -mt-6 space-y-8">
         
         <!-- Intro Section -->
-        <section class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg shadow-sm mb-4">
-            <p class="text-blue-800 text-sm leading-relaxed">
-                에버랜드에서의 자유 시간은 아이들에게 최고의 추억입니다. 목자님들이 한눈에 확인하고 인솔하실 수 있도록 가이드를 정리했습니다.
+        <section class="bg-white border-l-8 border-blue-600 p-6 rounded-xl shadow-lg">
+            <p class="text-gray-800 font-medium leading-relaxed content-text">
+                목자님, 아이들에게 최고의 추억을 선물해 주셔서 감사합니다. 현장에서 꼭 확인해야 할 핵심 지침입니다.
             </p>
         </section>
 
         <!-- 1. Mission -->
-        <div class="bg-white rounded-2xl p-6 shadow-md card border border-gray-100">
-            <div class="flex items-center mb-4">
-                <span class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 mr-3">
-                    <i class="fas fa-coins text-lg"></i>
+        <div class="bg-white rounded-3xl p-7 shadow-md card border border-gray-200">
+            <div class="flex items-center mb-6">
+                <span class="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center text-white mr-4 shadow-sm">
+                    <i class="fas fa-coins text-xl"></i>
                 </span>
-                <h2 class="text-lg font-bold text-gray-800">1. 미션 및 R-Coin 안내</h2>
+                <h2 class="text-xl font-black text-gray-900">1. 미션 및 R-Coin</h2>
             </div>
-            <ul class="space-y-3 text-gray-600 text-sm">
+            <ul class="space-y-5 text-gray-700 content-text">
                 <li class="flex items-start">
-                    <i class="fas fa-check text-yellow-500 mt-1 mr-2 text-xs"></i>
-                    <span>파크 내 곳곳에서 진행되는 미션을 확인해 주세요.</span>
+                    <span class="text-yellow-500 mr-3 mt-1"><i class="fas fa-circle text-[10px]"></i></span>
+                    <span>에버랜드 미션을 아이들에게 설명하고 <strong>참여를 독려</strong>해 주세요.</span>
                 </li>
                 <li class="flex items-start">
-                    <i class="fas fa-check text-yellow-500 mt-1 mr-2 text-xs"></i>
-                    <span>미션 성공 시 <strong class="text-gray-800">R-Coin</strong>이 지급됩니다.</span>
+                    <span class="text-yellow-500 mr-3 mt-1"><i class="fas fa-circle text-[10px]"></i></span>
+                    <span>미션 성공 시 <span class="text-blue-700 font-bold underline">R-Coin</span>이 지급됩니다.</span>
                 </li>
                 <li class="flex items-start">
-                    <i class="fas fa-exclamation-triangle text-red-400 mt-1 mr-2 text-xs"></i>
-                    <span>코인이 부족하면 추후 게임에서 불리할 수 있음을 이야기해 주세요. 다만, 참여는 <strong class="text-blue-600 underline">아이들의 자율적 선택</strong>입니다.</span>
+                    <span class="text-red-500 mr-3 mt-1"><i class="fas fa-exclamation-circle"></i></span>
+                    <span>코인이 부족하면 이후 게임에서 불리할 수 있음을 알려주세요. 단, <strong>선택은 아이들의 몫</strong>입니다.</span>
                 </li>
             </ul>
         </div>
 
         <!-- 2. Autonomy -->
-        <div class="bg-white rounded-2xl p-6 shadow-md card border border-gray-100">
-            <div class="flex items-center mb-4">
-                <span class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 mr-3">
-                    <i class="fas fa-vr-cardboard text-lg"></i>
+        <div class="bg-white rounded-3xl p-7 shadow-md card border border-gray-200">
+            <div class="flex items-center mb-6">
+                <span class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white mr-4 shadow-sm">
+                    <i class="fas fa-heart text-xl"></i>
                 </span>
-                <h2 class="text-lg font-bold text-gray-800">2. 자율성 존중 & 소외 방지</h2>
+                <h2 class="text-xl font-black text-gray-900">2. 자율성 & 소외 방지</h2>
             </div>
-            <div class="space-y-4">
-                <div class="bg-indigo-50 p-3 rounded-xl">
-                    <p class="text-sm font-semibold text-indigo-800 mb-1 italic">"자율성을 부여해주세요"</p>
-                    <p class="text-xs text-indigo-700 leading-relaxed">놀이기구 취향이나 친한 친구끼리 움직여도 최대한 존중해 주세요. 수련회에 대한 좋은 이미지로 이어집니다.</p>
+            <div class="space-y-6">
+                <div class="bg-indigo-50 p-5 rounded-2xl border border-indigo-100">
+                    <p class="font-bold text-indigo-900 mb-2 content-text">"취향을 존중해주세요"</p>
+                    <p class="text-indigo-800 leading-relaxed opacity-90">친한 친구끼리, 혹은 놀이기구 취향이 맞는 친구끼리 무리지어 다니는 것을 적극 지원해 주세요.</p>
                 </div>
-                <div class="bg-pink-50 p-3 rounded-xl">
-                    <p class="text-sm font-semibold text-pink-800 mb-1 italic">"소외되는 친구를 살펴주세요"</p>
-                    <p class="text-xs text-pink-700 leading-relaxed">소극적인 친구는 억지로 태우기보다 함께 산책하거나 카페에서 이야기하며 '함께 있음'을 느끼게 해주세요.</p>
+                <div class="bg-rose-50 p-5 rounded-2xl border border-rose-100">
+                    <p class="font-bold text-rose-900 mb-2 content-text">"소외된 친구 챙기기"</p>
+                    <p class="text-rose-800 leading-relaxed opacity-90">소극적인 친구는 억지로 태우기보다, 함께 맛있는 것을 먹거나 산책하며 대화를 나눠주세요.</p>
                 </div>
             </div>
         </div>
 
         <!-- 3. Food -->
-        <div class="bg-white rounded-2xl p-6 shadow-md card border border-gray-100">
-            <div class="flex items-center mb-4">
-                <span class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mr-3">
-                    <i class="fas fa-utensils text-lg"></i>
+        <div class="bg-white rounded-3xl p-7 shadow-md card border border-gray-200">
+            <div class="flex items-center mb-6">
+                <span class="w-12 h-12 bg-orange-500 rounded-2xl flex items-center justify-center text-white mr-4 shadow-sm">
+                    <i class="fas fa-utensils text-xl"></i>
                 </span>
-                <h2 class="text-lg font-bold text-gray-800">3. 식사 안내</h2>
+                <h2 class="text-xl font-black text-gray-900">3. 식사 안내</h2>
             </div>
-            <p class="text-sm text-gray-600 mb-4">아이들이 어디서 밥을 먹을 수 있는지 알 수 있게 아래 페이지를 직접 보여주세요.</p>
-            <a href="https://lseungkyu.github.io/2026GMCWinterFestival" target="_blank" class="block w-full bg-orange-500 hover:bg-orange-600 text-white text-center py-3 rounded-xl font-bold shadow-sm transition">
-                점심 식사 가능 장소 확인하기 <i class="fas fa-external-link-alt ml-1 text-xs text-white/80"></i>
+            <p class="text-gray-700 mb-6 content-text font-medium">점심 식사가 가능한 식당 목록입니다. 아이들에게 아래 버튼을 눌러 보여주세요.</p>
+            <a href="https://lseungkyu.github.io/2026GMCWinterFestival" target="_blank" class="block w-full bg-orange-500 text-white text-center py-5 rounded-2xl font-black shadow-lg hover:bg-orange-600 active:scale-95 transition text-lg">
+                식당 안내 페이지 열기 <i class="fas fa-external-link-alt ml-2"></i>
             </a>
         </div>
 
         <!-- 4. Time Management -->
-        <div class="bg-white rounded-2xl p-6 shadow-md card border border-gray-100 border-t-4 border-t-red-500">
-            <div class="flex items-center mb-4">
-                <span class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-600 mr-3">
-                    <i class="fas fa-clock text-lg"></i>
+        <div class="bg-white rounded-3xl p-7 shadow-md card border-4 border-red-500">
+            <div class="flex items-center mb-6">
+                <span class="w-12 h-12 bg-red-600 rounded-2xl flex items-center justify-center text-white mr-4 shadow-sm">
+                    <i class="fas fa-exclamation text-xl"></i>
                 </span>
-                <h2 class="text-lg font-bold text-gray-800">4. 집합 및 시간 관리</h2>
+                <h2 class="text-xl font-black text-gray-900 font-black">4. 반드시 지켜주세요!</h2>
             </div>
-            <div class="bg-red-50 p-4 rounded-xl mb-4">
-                <p class="text-red-800 font-bold text-center text-sm mb-1">"한 명의 지각이 모두의 시간을 낭비합니다"</p>
-            </div>
-            <div class="space-y-3 mb-4">
-                <div class="flex justify-between border-b pb-2">
-                    <span class="text-sm text-gray-500">집합 장소</span>
-                    <span class="text-sm font-bold text-gray-800">정문 광장 (??)</span>
-                </div>
-                <div class="flex justify-between border-b pb-2">
-                    <span class="text-sm text-gray-500">집합 시간</span>
-                    <span class="text-sm font-bold text-gray-800">오후 3:00</span>
-                </div>
-            </div>
-            <div class="space-y-2 text-sm text-gray-700">
-                <p class="flex items-start font-medium text-red-600">
-                    <span class="mr-2">💡</span>
-                    <span>집합 30분 전부터 아이들 위치를 파악해주세요.</span>
+            
+            <div class="bg-red-50 p-4 rounded-xl mb-6 text-center">
+                <p class="text-red-700 font-black content-text leading-tight">
+                    "한 명의 지각이 <br>전체의 시간을 뺏습니다"
                 </p>
-                <p class="flex items-start font-medium text-red-600">
-                    <span class="mr-2">💡</span>
-                    <span>복귀 시간과 장소를 전화/카톡으로 상기시켜주세요.</span>
-                </p>
+            </div>
+
+            <div class="space-y-4 mb-8">
+                <div class="flex flex-col border-b pb-3">
+                    <span class="text-sm font-bold text-gray-400 mb-1">집합 장소</span>
+                    <span class="text-xl font-black text-gray-900">정문 광장 (버츄얼라인 입구)</span>
+                </div>
+                <div class="flex flex-col border-b pb-3">
+                    <span class="text-sm font-bold text-gray-400 mb-1">집합 시간</span>
+                    <span class="text-2xl font-black text-red-600">오후 3시 정각</span>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="flex items-start bg-gray-50 p-4 rounded-xl">
+                    <span class="text-2xl mr-3">⏰</span>
+                    <p class="font-bold text-gray-800 leading-snug">집합 30분 전(2:30)부터 아이들 위치를 파악해 주세요.</p>
+                </div>
+                <div class="flex items-start bg-gray-50 p-4 rounded-xl">
+                    <span class="text-2xl mr-3">📢</span>
+                    <p class="font-bold text-gray-800 leading-snug">전화나 카톡으로 시간과 장소를 한 번 더 알려주세요.</p>
+                </div>
             </div>
         </div>
 
         <!-- Tips -->
-        <div class="bg-emerald-600 rounded-2xl p-6 shadow-lg text-white">
-            <div class="flex items-center mb-2">
-                <i class="fas fa-lightbulb text-emerald-200 mr-2"></i>
-                <h3 class="font-bold">목자님을 위한 팁</h3>
+        <div class="bg-blue-900 rounded-3xl p-8 shadow-2xl text-white">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-lightbulb text-yellow-300 text-2xl mr-3"></i>
+                <h3 class="text-xl font-black">목자님을 위한 진심</h3>
             </div>
-            <p class="text-sm leading-relaxed text-emerald-50 opacity-95">
-                아이들이 즐겁게 노는 동안 목자님들도 에버랜드의 분위기를 충분히 즐겨주세요. 목자님이 행복해야 아이들도 즐겁습니다!
+            <p class="content-text leading-relaxed font-medium text-blue-100">
+                아이들도 즐거워야 하지만, 무엇보다 <strong>인솔하시는 목자님이 행복해야 합니다.</strong> 에버랜드의 공기를 즐기며 목자님도 힐링하는 시간 되세요!
             </p>
         </div>
 
-        <button onclick="copyToClipboard()" class="w-full bg-gray-800 text-white py-4 rounded-2xl font-bold shadow-md hover:bg-gray-900 flex items-center justify-center space-x-2">
-            <i class="fas fa-share-alt"></i>
-            <span>링크 복사하여 단톡방 공유하기</span>
+        <button onclick="copyToClipboard()" class="w-full bg-gray-900 text-white py-5 rounded-2xl font-black shadow-xl flex items-center justify-center space-x-3 text-lg">
+            <i class="fas fa-share-nodes text-xl"></i>
+            <span>링크 복사 (단톡방 공유)</span>
         </button>
 
     </main>
 
     <script>
+        let currentSize = 16;
+        const body = document.body;
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 24) currentSize = 24;
+            document.documentElement.style.setProperty('--base-font-size', currentSize + 'px');
+        }
+
+        function resetFontSize() {
+            currentSize = 16;
+            document.documentElement.style.setProperty('--base-font-size', '16px');
+        }
+
         function copyToClipboard() {
             const url = window.location.href;
             const tempInput = document.createElement("input");
@@ -154,14 +234,14 @@
             document.body.removeChild(tempInput);
             
             const message = document.createElement("div");
-            message.className = "fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-6 py-2 rounded-full text-sm z-50";
-            message.innerText = "링크가 복사되었습니다!";
+            message.className = "fixed top-20 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-2xl z-[200] animate-bounce";
+            message.innerText = "복사 완료! 단톡방에 붙여넣으세요.";
             document.body.appendChild(message);
             
             setTimeout(() => {
                 message.style.opacity = '0';
                 setTimeout(() => document.body.removeChild(message), 500);
-            }, 2000);
+            }, 3000);
         }
     </script>
 </body>
