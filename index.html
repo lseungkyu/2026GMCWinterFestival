@@ -133,7 +133,7 @@
                         <h4 class="header-font text-2xl text-pink-400 tracking-wide">PHASE 01.<br>에버랜드</h4>
                         <span class="text-[10px] font-bold bg-pink-500/20 text-pink-300 px-3 py-1 rounded-full border border-pink-500/30 uppercase">Day 1</span>
                     </div>
-                    <div class="space-y-4">
+                    <!--<div class="space-y-4">
                         <div class="bg-white/5 p-4 rounded-xl border border-white/5">
                             <p class="text-sm font-bold text-white mb-1">📸 포토제닉</p>
                             <p class="text-[11px] text-gray-400">조원 전체가 참여하는 베스트 샷 도전!</p>
@@ -150,12 +150,33 @@
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M2 12h20"/></svg>
                         식권 사용 가능 식당 조회
                     </button>
+                    </div>-->
+                    <div class="space-y-4">
+                        <div class="bg-white/10 p-4 rounded-xl border border-pink-500/30 mb-4">
+                            <p class="text-sm font-bold text-white mb-1"><i class="fas fa-clock mr-2 text-pink-400"></i>자유시간</p>
+                            <p class="text-[11px] text-gray-400 leading-relaxed">눈치 보지 말고 즐겨! 티익스프레스부터 판다월드까지, 친구들과 함께 가고 싶은 곳 어디든 자유롭게 이동하세요.</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="bg-black/40 p-3 rounded-xl border border-white/5 text-center">
+                                <p class="text-[10px] font-bold text-pink-300 mb-1">OPTIONAL MISSION</p>
+                                <p class="text-[12px] text-white">미션 성공 시<br><span class="text-yellow-400">R-Coin</span> 대박 지급</p>
+                            </div>
+                            <div class="bg-black/40 p-3 rounded-xl border border-white/5 text-center flex flex-col justify-center">
+                                <p class="text-[11px] text-gray-400">#포토제닉 #추격전</p>
+                                <p class="text-[11px] text-gray-400">#모양찾기</p>
+                            </div>
+                        </div>
+
+                        <button onclick="togglePage('restaurantPage')" class="w-full bg-pink-600 hover:bg-pink-500 text-white py-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-pink-600/30">
+                            <i class="fas fa-utensils"></i> 에버랜드 맛집 리스트 (식권 사용)
+                        </button>
                     </div>
                 </div>
             </div>
 
             <!-- Phase 2: 오전 프로그램 -->
-            <div class="relative z-10">
+            <!-- <div class="relative z-10">
                 <div class="absolute -left-12 bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center border-4 border-[#05070a] shadow-[0_0_15px_rgba(139,92,246,0.4)]">
                     <i class="fas fa-dice text-sm"></i>
                 </div>
@@ -181,6 +202,68 @@
                         </div>
                     </div>
                     <p class="text-center text-[10px] text-purple-300 font-bold">성공한 만큼 코인이 쌓입니다!</p>
+                </div>
+            </div>
+            -->
+            <div class="relative z-10">
+                <div class="absolute -left-12 bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center border-4 border-[#05070a] shadow-[0_0_15px_rgba(139,92,246,0.4)]">
+                    <i class="fas fa-gamepad text-sm"></i>
+                </div>
+                <div class="glass-card p-6 border-purple-500/40">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h4 class="header-font text-2xl text-purple-400 tracking-wide">PHASE 02.<br>자유활동</h4>
+                            <p class="text-[11px] text-purple-300 font-bold mt-1 uppercase">취향존중: 네가 하고 싶은 걸 골라봐!</p>
+                        </div>
+                        <span class="text-[10px] font-bold bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full border border-purple-500/30 uppercase">Day 2 AM</span>
+                    </div>
+            
+                    <div class="space-y-4">
+            
+                        <div class="group bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-pink-500/50 transition-all">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-palette text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-black text-white italic">#금손 #감성 #DIY</p>
+                                    <p class="text-[11px] text-gray-400 mt-1">세상에 하나뿐인 <span class="text-pink-300">에코백 & 키링 만들기</span></p>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="group bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-purple-500/50 transition-all">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-chess text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-black text-white italic">#전략 #친목 #승부</p>
+                                    <p class="text-[11px] text-gray-400 mt-1">우정 파괴 주의?! <span class="text-purple-300">실내 보드게임 서바이벌</span></p>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="group bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-blue-500/50 transition-all">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-running text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-black text-white italic">#액티브 #필드</p>
+                                    <p class="text-[11px] text-gray-400 mt-1"><span class="text-blue-300">보물찾기 · 축구 · 농구</span> (에너지 대방출)</p>
+                                </div>
+                            </div>
+                        </div>
+            
+                    </div>
+            
+                    <div class="mt-6 p-4 bg-purple-900/20 rounded-2xl border border-purple-500/20 text-center">
+                        <p class="text-[11px] text-purple-200">
+                            <i class="fas fa-info-circle mr-1"></i> 총 6개의 활동 중 **현장에서 맘대로 Pick!**
+                        </p>
+                        <p class="text-[10px] text-purple-300/60 mt-1 italic">※ 어떤 걸 골라도 R-Coin은 쏟아집니다.</p>
+                    </div>
                 </div>
             </div>
 
